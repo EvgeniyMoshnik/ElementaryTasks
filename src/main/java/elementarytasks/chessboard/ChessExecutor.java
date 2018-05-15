@@ -5,18 +5,16 @@ import elementarytasks.Validator;
 
 public class ChessExecutor {
 
-    private static Validator validator;
+    private static String help = "This application draws chess board of given:\n" +
+            "height = first integer argument of application,\n" +
+            "width = second integer argument of application.\n" +
+            "Default height and width equal 1.";
 
-    private static void printHelp() {
-        System.out.println("This application draws chess board of given:\n" +
-                "height = first integer argument of application,\n" +
-                "width = second integer argument of application.\n" +
-                "Default height and width equal 1.");
-    }
+    private static Validator validator;
 
     public static void main(String[] args) {
         if (args.length == 0) {
-            printHelp();
+            System.out.println(help);
             return;
         }
         int height = 1;
@@ -33,7 +31,6 @@ public class ChessExecutor {
                 System.out.println("Invalid arguments. Should be integers!");
             }
         }
-
         ChessBoard chessBoard = new ChessBoard(height, width);
         if (height == 1 && width == 1) {
             System.out.println("Default chess board 1*1:");

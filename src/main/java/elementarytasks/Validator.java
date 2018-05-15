@@ -1,5 +1,7 @@
 package elementarytasks;
 
+import java.util.Scanner;
+
 public class Validator {
 
     public int[] toIntArray(String[] args) throws NumberFormatException {
@@ -10,5 +12,18 @@ public class Validator {
         return arrayArgs;
     }
 
-  //  public double scanner
+    public double doubleScan(Scanner scanner, String help)  {
+        double scan;
+        scanner.useDelimiter("\n");
+        while(!scanner.hasNextDouble()) {
+            if (scanner.hasNext("")) {
+                System.out.println(help);
+            } else {
+                System.out.println("Parameter should be number!");
+            }
+            scanner.next();
+        }
+        scan = scanner.nextDouble();
+        return scan;
+    }
 }
