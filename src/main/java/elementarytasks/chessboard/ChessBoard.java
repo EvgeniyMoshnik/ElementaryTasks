@@ -7,11 +7,9 @@ public class ChessBoard {
     private int height;
     private int width;
 
-
     public ChessBoard(int height, int width) {
         this.height = height;
         this.width = width;
-
     }
 
     void drawBoard() {

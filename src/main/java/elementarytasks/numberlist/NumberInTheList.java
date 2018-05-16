@@ -16,7 +16,6 @@ public class NumberInTheList {
         }
     }
 
-
     String fromOnetoNine(String num) {
        // String result;
         if (num.equals("1")) {

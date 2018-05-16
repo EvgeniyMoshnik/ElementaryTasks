@@ -10,7 +10,7 @@ public class EnvelopeAnalysis {
     private static String help = "This application check the possibility to enclose one envelope in another.\n" +
             "You may use a floating-point format.";
 
-    ArrayList<Envelope> listEnvelope;
+    private ArrayList<Envelope> listEnvelope;
 
 
     public static void main(String[] args) {
@@ -29,7 +29,7 @@ public class EnvelopeAnalysis {
         }
     }
 
-    ArrayList<Envelope> createEnvelopes(Scanner scanner, int envelopesNumber) {
+     ArrayList<Envelope> createEnvelopes(Scanner scanner, int envelopesNumber) {
         double width;
         double height;
         Envelope envelope;

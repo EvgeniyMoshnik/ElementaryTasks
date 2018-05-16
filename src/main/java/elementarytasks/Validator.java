@@ -13,7 +13,7 @@ public class Validator {
     }
 
     public double doubleScan(Scanner scanner, String help)  {
-        double scan;
+        double result;
         scanner.useDelimiter("\n");
         while(!scanner.hasNextDouble()) {
             if (scanner.hasNext("")) {
@@ -23,7 +23,7 @@ public class Validator {
             }
             scanner.next();
         }
-        scan = scanner.nextDouble();
-        return scan;
+        result = scanner.nextDouble();
+        return result;
     }
 }

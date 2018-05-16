@@ -1,6 +1,6 @@
 package elementarytasks.triangles;
 
-public class Triangle {
+public class Triangle implements Comparable<Triangle> {
     private String name;
     private double sideOne;
     private double sideTwo;
@@ -12,10 +12,12 @@ public class Triangle {
         this.sideOne = sideOne;
         this.sideTwo = sideTwo;
         this.sideThree = sideThree;
-        area = calculateArea();
     }
 
     public double getArea() {
+        if (area == 0.0d) {
+            area = calculateArea();
+        }
         return area;
     }
 
@@ -33,5 +35,10 @@ public class Triangle {
         return "[Triangle " + name + "]: " + area + " cm";
     }
 
+
+    @Override
+    public int compareTo(Triangle o) {
+        return 0;
+    }
 }
 
