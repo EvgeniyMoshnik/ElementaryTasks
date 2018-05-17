@@ -1,6 +1,8 @@
 package elementarytasks.triangles;
 
-public class Triangle implements Comparable<Triangle> {
+import java.util.Comparator;
+
+public class Triangle {
     private String name;
     private double sideOne;
     private double sideTwo;
@@ -36,9 +38,12 @@ public class Triangle implements Comparable<Triangle> {
     }
 
 
-    @Override
-    public int compareTo(Triangle o) {
-        return 0;
-    }
+
+    public static Comparator<Triangle> AreaComparator = (t1, t2) -> {
+        Double areaOne = t1.getArea();
+        Double areaTwo = t2.getArea();
+        return areaOne.compareTo(areaTwo);
+    };
+
 }
 

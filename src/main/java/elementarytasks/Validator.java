@@ -2,9 +2,9 @@ package elementarytasks;
 
 import java.util.Scanner;
 
-public class Validator {
+public interface Validator {
 
-    public int[] toIntArray(String[] args) throws NumberFormatException {
+    static  int[] toIntArray(String[] args) throws NumberFormatException {
         int[] arrayArgs = new int[args.length];
         for (int i = 0; i < args.length; i++) {
             arrayArgs[i] = Integer.parseInt(args[i]);
@@ -12,7 +12,7 @@ public class Validator {
         return arrayArgs;
     }
 
-    public double doubleScan(Scanner scanner, String help)  {
+    static double doubleScan(Scanner scanner, String help)  {
         double result;
         scanner.useDelimiter("\n");
         while(!scanner.hasNextDouble()) {

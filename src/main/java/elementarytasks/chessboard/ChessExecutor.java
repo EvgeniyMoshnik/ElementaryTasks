@@ -10,8 +10,6 @@ public class ChessExecutor {
             "width = second integer argument of application.\n" +
             "Default height and width equal 1.";
 
-    private static Validator validator;
-
     public static void main(String[] args) {
         if (args.length == 0) {
             System.out.println(help);
@@ -22,9 +20,9 @@ public class ChessExecutor {
         int[] arrayIntArgs;
 
         if (args.length >= 2) {
-            validator = new Validator();
+
             try {
-                arrayIntArgs = validator.toIntArray(args);
+                arrayIntArgs = Validator.toIntArray(args);
                 height = arrayIntArgs[0];
                 width = arrayIntArgs[1];
             } catch (NumberFormatException exc) {

@@ -10,9 +10,14 @@ public class TriangleExecutor {
     String help = "This application return sorted triangles.";
 
     public static void main(String[] args) {
-        TriangleExecutor triangleExecutor = new TriangleExecutor();
+      //  TriangleExecutor triangleExecutor = new TriangleExecutor();
         Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
-       // triangleExecutor.createTriangle(scanner);
+        TriangleList triangleList = new TriangleList();
+        triangleList.createTriangle(scanner);
+        triangleList.printTtiangles();
+
+        while(true)
+
     }
 
 

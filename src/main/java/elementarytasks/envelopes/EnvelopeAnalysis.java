@@ -33,14 +33,13 @@ public class EnvelopeAnalysis {
         double width;
         double height;
         Envelope envelope;
-        Validator validator = new Validator();
         listEnvelope = new ArrayList<>();
         int numEnvel = 1;
         do {
             System.out.print("Enter width envelope № " + numEnvel + ":\t");
-            width = validator.doubleScan(scanner, help);
+            width = Validator.doubleScan(scanner, help);
             System.out.print("Enter height envelope № " + numEnvel + ":\t");
-            height = validator.doubleScan(scanner, help);
+            height = Validator.doubleScan(scanner, help);
             scanner.nextLine();
             envelope = new Envelope(width, height);
             listEnvelope.add(envelope);
