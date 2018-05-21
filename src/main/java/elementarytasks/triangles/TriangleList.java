@@ -17,13 +17,15 @@ public class TriangleList {
 
 
 
-    void createTriangle(Scanner scanner) {
+    Triangle createTriangle(Scanner scanner) {
         String strScan;
         String[] params = new String[4];
         String delimiters = ",";
+        boolean paramsValid;
 
         do {
             System.out.print("Enter name and three sides of triangle:\t");
+            paramsValid = false;
             strScan = scanner.nextLine();
             strScan = strScan.replaceAll("[\\s]", "");
 
@@ -37,13 +39,12 @@ public class TriangleList {
             sideTwo = Double.parseDouble(params[2]);
             sideThree = Double.parseDouble(params[3]);
 
+        //    for (String param : params) {
+          //      System.out.println(param);
+        //    }
+        } while (!isTriangle(sideOne, sideTwo, sideThree) && paramsValid);
 
-            for (String param : params) {
-                System.out.println(param);
-            }
-        } while (!isTriangle(sideOne, sideTwo, sideThree));
-
-        putTriangle();
+        return new Triangle(name, sideOne, sideTwo, sideThree);
 
     }
 
@@ -63,17 +64,19 @@ public class TriangleList {
      triangles.sort(Triangle.AreaComparator);
     }
 
-    private void putTriangle() {
-        Triangle triangle = new Triangle(name, sideOne, sideTwo, sideThree);
+    void putTriangle(Triangle triangle) {
         triangles.add(triangle);
     }
 
-    void printTtiangles() {
-        sortTriangles();
+    void printTriangles() {
         System.out.println("========= Triangles list: =========");
         for(Triangle triangle: triangles) {
             System.out.println(triangle.toString());
         }
     }
+
+   // public ArrayList<Triangle> getTriangles() {
+  //      return triangles;
+//    }
 
 }
