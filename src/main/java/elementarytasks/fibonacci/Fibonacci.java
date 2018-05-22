@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Fibonacci {
 
-    List<Integer> listFibon = new ArrayList<>();
+    List<Integer> listFibonacci = new ArrayList<>();
 
     List<Integer> getFibonacciNumb(int start, int end) {
         int nOne = 1;
@@ -13,16 +13,22 @@ public class Fibonacci {
         int sum;
         while (true) {
             if (nTwo >= start) {
-                listFibon.add(nTwo);
+                listFibonacci.add(nTwo);
                 sum = nOne + nTwo;
                 nOne = nTwo;
                 nTwo = sum;
                 if (nTwo >= end) {
-                    return listFibon;
+                    return listFibonacci;
                 }
             }
         }
     }
 
+    void printListFibonacci() {
+        System.out.print("Numbers Fibonacci: ");
+        for (Integer num: listFibonacci) {
+            System.out.print(num + ", ");
+        }
+    }
 
 }
