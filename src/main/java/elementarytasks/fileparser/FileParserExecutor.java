@@ -1,24 +1,28 @@
 package elementarytasks.fileparser;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-
 public class FileParserExecutor {
 
-    public static void main(String[] args) throws IOException {
-        String path = "TextForParse.txt";
-       // String line1 = args[1];
-     //   String line2 = args[2];
-     //   File file = new File("TextForParse.txt");
-     //   file.createNewFile();
+    private static String help = "File parser";
+
+    public static void main(String[] args) {
+
+        if (args.length <= 1) {
+            System.out.println(help);
+        }
+        String path = args[0];
+        String strCount = args[1];
         FileParser fileParser = new FileParser();
         StringBuffer sb = fileParser.fileReade(path);
-        System.out.println(sb);
-        fileParser.searchReplace(sb, "gh", "OOO");
-        System.out.println(sb);
 
-        System.out.println(fileParser.countString(sb, "OOO"));
-        fileParser.writeReplaced(sb, path);
+        if (args.length == 2) {
+            int quantity;
+            quantity = fileParser.countString(sb, strCount);
+            System.out.print("Quantity " + "\""+ strCount + "\": " + quantity);
+        } else {
+            String strReplace = args[2];
+            fileParser.searchReplace(sb, strCount, strReplace);
+            fileParser.writeReplaced(sb, path);
+            System.out.println("String " + strCount + " replaced on " + strReplace + ".");
+        }
     }
 }
