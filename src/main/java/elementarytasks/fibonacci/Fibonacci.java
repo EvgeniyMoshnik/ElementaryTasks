@@ -15,7 +15,7 @@ public class Fibonacci {
         this.end = end;
     }
 
-    List<Integer> getFibonacciNumb() {
+   public List<Integer> getFibonacciNumb() {
         int nOne = 1;
         int nTwo = 1;
         int sum;
@@ -26,7 +26,7 @@ public class Fibonacci {
                 sum = nOne + nTwo;
                 nOne = nTwo;
                 nTwo = sum;
-                if (nTwo >= end) {
+                if (nTwo >= end + 1) {
                     return listFibonacci;
                 }
         }

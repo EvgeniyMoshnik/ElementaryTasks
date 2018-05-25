@@ -19,7 +19,7 @@ public class ChessExecutor {
         int[] arrayIntArgs = new int[args.length];
 
         try {
-            arrayIntArgs = Validator.toIntArray(args);
+            arrayIntArgs = Validator.toIntArraySizeBoard(args);
         } catch (NumberFormatException exc) {
             System.out.println("Invalid arguments. Should be integers!");
         }

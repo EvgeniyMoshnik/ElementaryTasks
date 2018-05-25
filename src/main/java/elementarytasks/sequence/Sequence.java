@@ -11,7 +11,7 @@ public class Sequence {
         this.limit = limit;
     }
 
-    List<Integer> getSequence() {
+   public List<Integer> getSequence() {
         for (int i = 1; Math.pow(i, 2) < limit; i++) {
             listSequence.add(i);
         }
@@ -19,6 +19,7 @@ public class Sequence {
     }
 
     void printSequence(List<Integer> listSequence) {
+        System.out.print("Sequence:\t");
         for (Integer num : listSequence) {
             System.out.print(num + ", ");
         }

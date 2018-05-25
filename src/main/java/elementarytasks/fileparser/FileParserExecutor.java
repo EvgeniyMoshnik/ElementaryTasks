@@ -8,6 +8,7 @@ public class FileParserExecutor {
 
         if (args.length <= 1) {
             System.out.println(help);
+            return;
         }
         String path = args[0];
         String strCount = args[1];
