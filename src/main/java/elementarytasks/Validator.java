@@ -1,7 +1,7 @@
 package elementarytasks;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public interface Validator {
@@ -15,11 +15,7 @@ public interface Validator {
     }
 
     static boolean isSize(int width, int height) {
-        if (width <= 0 || height <= 0) {
-            return false;
-        }
-        return true;
-
+        return  (width <= 0 || height <= 0);
     }
 
     static double toDoubleParameter(Scanner scanner, String help) {
@@ -73,13 +69,21 @@ public interface Validator {
         return isTriangle;
     }
 
-    static boolean isParamsForTriangle(ArrayList<String> params) {
+    static boolean isParamsForTriangle(List<String> params) {
         if (params.size() < 4) {
             return false;
         }
         return  (isNumberDouble(params.get(1)) &&
                 isNumberDouble(params.get(2)) &&
                 isNumberDouble(params.get(3)));
+    }
+
+    static boolean isParams(List<String> params, String help, int notCountParams) {
+        if (params.size() <= notCountParams) {
+            System.out.println(help);
+            return false;
+        }
+        return true;
     }
 
 }

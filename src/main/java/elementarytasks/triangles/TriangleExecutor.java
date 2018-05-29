@@ -1,5 +1,6 @@
 package elementarytasks.triangles;
 
+import elementarytasks.Constants;
 import elementarytasks.Validator;
 
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class TriangleExecutor {
             if (triangle != null) {
                 triangleList.putTriangle(triangle);
             }
-            System.out.println("If you want to continue please enter \"y\" or \"yes\".");
+            System.out.println(Constants.MESSAGE_APP_CONTINUE);
             appContinue = scanner.nextLine();
             if (Validator.isContinue(appContinue)) {
                 continue;
