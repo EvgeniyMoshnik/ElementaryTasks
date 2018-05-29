@@ -1,4 +1,4 @@
-package elementarytasks.numberlist;
+package elementarytasks.numbers;
 
 public class NumberInTheList {
     static String help = "Application writes inserted digit by text.";

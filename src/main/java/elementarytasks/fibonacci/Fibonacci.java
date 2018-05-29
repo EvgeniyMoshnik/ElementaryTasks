@@ -7,7 +7,6 @@ public class Fibonacci {
 
     private int start;
     private int end;
-
     private List<Integer> listFibonacci = new ArrayList<>();
 
     public Fibonacci(int start, int end) {
@@ -33,7 +32,7 @@ public class Fibonacci {
     }
 
     void printListFibonacci(List<Integer> listFibonacci) {
-        System.out.print("Numbers Fibonacci: ");
+        System.out.print("UpToTwenty Fibonacci: ");
         for (Integer num: listFibonacci) {
             System.out.print(num + ", ");
         }

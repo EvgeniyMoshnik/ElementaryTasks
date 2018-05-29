@@ -15,18 +15,14 @@ public class TriangleList {
    private double sideThree;
 
     private ArrayList<Triangle> triangles = new ArrayList<>();
-  //  private Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
-
 
     ArrayList<String> parseParams(String params) {
-
         ArrayList<String> arrayParams = new ArrayList<>();
         String delimiters = ",";
         StringTokenizer st = new StringTokenizer(params, delimiters, false);
         for (int i = 0; i < 4 && st.hasMoreTokens(); i++) {
             arrayParams.add(st.nextToken());
         }
-
         return arrayParams;
     }
 
@@ -53,7 +49,6 @@ public class TriangleList {
         }
         return new Triangle(name, sideOne, sideTwo, sideThree);
     }
-
 
     void sortTriangles() {
         triangles.sort(Triangle.AreaComparator);

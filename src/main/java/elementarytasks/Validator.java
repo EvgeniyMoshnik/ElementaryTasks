@@ -58,10 +58,9 @@ public interface Validator {
     }
 
     static boolean isContinue(String appContinue) {
-        if (appContinue.equalsIgnoreCase("y") || appContinue.equalsIgnoreCase("yes")) {
-            return true;
-        }
-        return false;
+        return  (appContinue.equalsIgnoreCase("y") ||
+                appContinue.equalsIgnoreCase("yes"));
+
     }
 
     static boolean isTriangle(double sideOne, double sideTwo, double sideThree) {
@@ -78,10 +77,9 @@ public interface Validator {
         if (params.size() < 4) {
             return false;
         }
-        if (isNumberDouble(params.get(1)) && isNumberDouble(params.get(2)) && isNumberDouble(params.get(3))) {
-            return true;
-        }
-        return false;
+        return  (isNumberDouble(params.get(1)) &&
+                isNumberDouble(params.get(2)) &&
+                isNumberDouble(params.get(3)));
     }
 
 }

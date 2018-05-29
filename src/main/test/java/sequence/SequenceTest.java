@@ -1,4 +1,6 @@
-import elementarytasks.fibonacci.Fibonacci;
+package sequence;
+
+import elementarytasks.sequence.Sequence;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -9,31 +11,29 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class FibonacciTest {
+public class SequenceTest {
 
-   private Fibonacci fibonacci;
+   private Sequence sequence;
    private List<Integer> expected;
 
     @Before
     public void setUp() {
-        fibonacci = new Fibonacci(8, 55);
+        sequence = new Sequence(40);
         expected = new ArrayList<>();
     }
 
     @Test
-    public void getFibonacciNumbTest() {
-        expected.add(8);
-        expected.add(13);
-        expected.add(21);
-        expected.add(34);
-        expected.add(55);
+    public void getSequence() {
+        for (int i = 1; i <= 6; i++) {
+            expected.add(i);
+        }
 
-        List<Integer> actual = fibonacci.getFibonacciNumb();
+        List<Integer> actual = sequence.getSequence();
         Assert.assertEquals(expected, actual);
     }
 
     @After
-    public void tearDown() {
+    public void tearDown() throws Exception {
         expected.clear();
     }
 }
