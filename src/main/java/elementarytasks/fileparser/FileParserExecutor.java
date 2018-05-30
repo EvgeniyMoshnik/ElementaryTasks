@@ -9,21 +9,16 @@ import java.util.Scanner;
 
 public class FileParserExecutor {
 
-    private static String help = "File parser";
+    private static String help = " \nApplication File parser. \n" +
+            "If 2 params application will calculate amount of substring entries. \n" +
+            "If 3 params application will replace with other substring.\n";
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
-        //    if (args.length <= 1) {
-        //      System.out.println(help);
-        //      return;
-        //    }
-        ///  String path = args[0];
-        //   String strCount = args[1];
         while (true) {
             String params = Parameter.enterParameters(scanner, Constants.MESSAGE_ENTER_PARSER);
             List<String> paramsList = Parameter.parseParams(params);
-            if (Validator.isParams(paramsList, help, 1)) {
+            if (!Validator.isParams(paramsList, help, 1)) {
                 continue;
             }
             String path = paramsList.get(0);
@@ -34,14 +29,13 @@ public class FileParserExecutor {
             if (paramsList.size() == 2) {
                 int quantity;
                 quantity = fileParser.countString(sb, strCount);
-                System.out.print("Quantity " + "\"" + strCount + "\": " + quantity);
+                System.out.println("Quantity " + "\"" + strCount + "\": " + quantity);
             } else {
                 String strReplace = paramsList.get(2);
                 fileParser.searchReplace(sb, strCount, strReplace);
                 fileParser.writeReplaced(sb, path);
                 System.out.println("String " + strCount + " replaced on " + strReplace + ".");
             }
-
             System.out.println(Constants.MESSAGE_APP_CONTINUE);
             String appContinue = scanner.nextLine();
             if (Validator.isContinue(appContinue)) {

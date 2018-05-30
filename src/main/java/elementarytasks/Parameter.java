@@ -23,4 +23,46 @@ public interface Parameter {
         return arrayParams;
     }
 
+    static int[] toIntArraySizeBoard(String[] args) throws NumberFormatException {
+        int[] arrayArgs = new int[2];
+        for (int i = 0; i < args.length; i++) {
+            arrayArgs[i] = Integer.parseInt(args[i]);
+        }
+        return arrayArgs;
+    }
+
+    static double toDoubleParameter(Scanner scanner, String help) {
+        double result;
+        scanner.useDelimiter("\n");
+        while (!scanner.hasNextDouble()) {
+            if (scanner.hasNext("")) {
+                System.out.println(help + "\n" +
+                        "Please enter again parameter.");
+            } else {
+                System.out.println("Parameter should be number! \n" +
+                        "Please enter again parameter.");
+            }
+            scanner.next();
+        }
+        result = scanner.nextDouble();
+        return result;
+    }
+
+    static int toIntParameter(Scanner scanner, String help) {
+        int result;
+        scanner.useDelimiter("\n");
+        while (!scanner.hasNextInt()) {
+            if (scanner.hasNext("")) {
+                System.out.println(help + "\n" +
+                        "Please enter again parameter.");
+            } else {
+                System.out.println("Parameter should be integer! \n" +
+                        "Please enter again parameter.");
+            }
+            scanner.next();
+        }
+        result = scanner.nextInt();
+        return result;
+    }
+
 }

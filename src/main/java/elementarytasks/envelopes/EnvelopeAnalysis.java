@@ -1,5 +1,6 @@
 package elementarytasks.envelopes;
 
+import elementarytasks.Constants;
 import elementarytasks.Validator;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class EnvelopeAnalysis {
             envelopeList.createEnvelopes(scanner, help);
             result = envelopeList.compareEnvelopes();
             System.out.println(result);
-            System.out.println("If you want to continue please enter \"y\" or \"yes\".");
+            System.out.println(Constants.MESSAGE_APP_CONTINUE);
             appContinue = scanner.nextLine();
             if (Validator.isContinue(appContinue)) {
                 continue;

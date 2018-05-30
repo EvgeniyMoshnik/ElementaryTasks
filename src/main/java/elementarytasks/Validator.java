@@ -1,38 +1,21 @@
 package elementarytasks;
 
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Scanner;
 
 public interface Validator {
 
-    static int[] toIntArraySizeBoard(String[] args) throws NumberFormatException {
-        int[] arrayArgs = new int[2];
-        for (int i = 0; i < args.length; i++) {
-            arrayArgs[i] = Integer.parseInt(args[i]);
-        }
-        return arrayArgs;
-    }
-
     static boolean isSize(int width, int height) {
-        return  (width <= 0 || height <= 0);
+        return  (width >= 0 && height >= 0);
     }
 
-    static double toDoubleParameter(Scanner scanner, String help) {
-        double result;
-        scanner.useDelimiter("\n");
-        while (!scanner.hasNextDouble()) {
-            if (scanner.hasNext("")) {
-                System.out.println(help + "\n" +
-                        "Please enter again parameter.");
-            } else {
-                System.out.println("Parameter should be number! \n" +
-                        "Please enter again parameter.");
-            }
-            scanner.next();
+    static boolean isRange(int start, int end) {
+        if ((start > 0 && end > 0) && (start <= end)) {
+            return true;
+        } else {
+            System.out.println("Incorrect range!");
         }
-        result = scanner.nextDouble();
-        return result;
+        return false;
     }
 
     static boolean isNumberDouble(String number) {

@@ -1,18 +1,18 @@
 package elementarytasks.tickets;
 
 public class Ticket {
-    private static final int LENGTH_TICKET = 6;
+    //   private static final int LENGTH_TICKET = 6;
     private int numberTicket;
 
     public Ticket(int number) {
         this.numberTicket = number;
     }
 
-    boolean isTicket(String number) {
-        return number.length() == LENGTH_TICKET;
+    static boolean isTicket(int number) {
+        return number < 1000000;
     }
 
-    static boolean isLuckyMoscow(int numberTicket) {
+    public static boolean isLuckyMoscow(int numberTicket) {
         int delimiter = 1000;
         int partOne = numberTicket / delimiter;
         int partTwo = numberTicket % delimiter;
@@ -20,7 +20,7 @@ public class Ticket {
         return countNum(partOne) == countNum(partTwo);
     }
 
-    static int countNum(int num) {
+    private static int countNum(int num) {
         int sum = 0;
         while (num > 0) {
             sum += num % 10;
@@ -29,7 +29,7 @@ public class Ticket {
         return sum;
     }
 
-    static boolean isLuckyPeter(int numberTicket) {
+    public static boolean isLuckyPeter(int numberTicket) {
         int num;
         int sumEven = 0;
         int sumOdd = 0;
@@ -45,11 +45,13 @@ public class Ticket {
         return sumEven == sumOdd;
     }
 
+    @Override
+    public String toString() {
+        return String.valueOf(getNumberTicket());
+    }
+
     public int getNumberTicket() {
         return numberTicket;
     }
 
-    public void setNumberTicket(int numberTicket) {
-        this.numberTicket = numberTicket;
-    }
 }

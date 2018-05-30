@@ -1,30 +1,42 @@
 package elementarytasks.fibonacci;
 
+import elementarytasks.Constants;
+import elementarytasks.Parameter;
 import elementarytasks.Validator;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class FibonacciExecutor {
 
-    static String help = "Number Fibonacci";
+    static String help = "Application number Fibonacci. You must enter two positive integer values.";
 
     public static void main(String[] args) {
 
-        if (args.length < 2) {
-            System.out.println(help);
-            System.out.println("Incorrect data!");
-            return;
-        }
+        Scanner scanner = new Scanner(System.in);
+        int start;
+        int end;
+        String appContinue;
 
-        if (!Validator.isNumberInteger(args[0]) || !Validator.isNumberInteger(args[1])) {
-            System.out.println("Parameter should be number!");
-            return;
-        }
-        int start = Integer.parseInt(args[0]);
-        int end = Integer.parseInt(args[1]);
-        Fibonacci fibonacci = new Fibonacci(start, end);
+        while (true) {
+            System.out.print("Enter start range:\t");
+            start = Parameter.toIntParameter(scanner, help);
+            System.out.print("Enter end range:\t");
+            end = Parameter.toIntParameter(scanner, help);
+            scanner.nextLine();
+            if (!Validator.isRange(start, end)) {
+                continue;
+            }
+            Fibonacci fibonacci = new Fibonacci(start, end);
+            List<Integer> listFibonacci = fibonacci.getFibonacciNumb();
+            fibonacci.printListFibonacci(listFibonacci, start, end);
 
-        List<Integer> listFibonacci = fibonacci.getFibonacciNumb();
-        fibonacci.printListFibonacci(listFibonacci);
+            System.out.println(Constants.MESSAGE_APP_CONTINUE);
+            appContinue = scanner.nextLine();
+            if (Validator.isContinue(appContinue)) {
+                continue;
+            }
+            break;
+        }
     }
 }

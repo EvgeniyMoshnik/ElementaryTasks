@@ -1,5 +1,6 @@
 package elementarytasks.envelopes;
 
+import elementarytasks.Parameter;
 import elementarytasks.Validator;
 
 import java.util.ArrayList;
@@ -17,9 +18,9 @@ public class EnvelopeList {
         int numEnvelope = 1;
         do {
             System.out.print("Enter width envelope № " + numEnvelope + ":\t");
-            width = Validator.toDoubleParameter(scanner, help);
+            width = Parameter.toDoubleParameter(scanner, help);
             System.out.print("Enter height envelope № " + numEnvelope + ":\t");
-            height = Validator.toDoubleParameter(scanner, help);
+            height = Parameter.toDoubleParameter(scanner, help);
             scanner.nextLine();
             envelope = new Envelope(width, height);
             addEnvelope(envelope);

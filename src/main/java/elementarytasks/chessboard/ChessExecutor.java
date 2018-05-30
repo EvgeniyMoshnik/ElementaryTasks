@@ -1,6 +1,7 @@
 package elementarytasks.chessboard;
 
 
+import elementarytasks.Parameter;
 import elementarytasks.Validator;
 
 public class ChessExecutor {
@@ -19,7 +20,7 @@ public class ChessExecutor {
         int[] arrayIntArgs = new int[args.length];
 
         try {
-            arrayIntArgs = Validator.toIntArraySizeBoard(args);
+            arrayIntArgs = Parameter.toIntArraySizeBoard(args);
         } catch (NumberFormatException exc) {
             System.out.println("Invalid arguments. Should be integers!");
         }

@@ -22,18 +22,18 @@ public class FileParser {
         return fileText;
     }
 
-    int countString(StringBuffer text, String search) {
+    public int countString(StringBuffer text, String search) {
         int counter = 0;
         int index;
         index = text.indexOf(search);
         while (index >= 0) {
             counter++;
-          index = text.indexOf(search, index + search.length());
+            index = text.indexOf(search, index + search.length());
         }
         return counter;
     }
 
-    StringBuffer searchReplace(StringBuffer text, String searchText, String replaceText) {
+    public StringBuffer searchReplace(StringBuffer text, String searchText, String replaceText) {
         int index;
         String secondHalf;
         index = text.indexOf(searchText);
@@ -48,8 +48,8 @@ public class FileParser {
     }
 
     void writeReplaced(StringBuffer text, String path) {
-        try(BufferedWriter bw =
-        new BufferedWriter(new FileWriter(path))) {
+        try (BufferedWriter bw =
+                     new BufferedWriter(new FileWriter(path))) {
             bw.write(text.toString());
         } catch (IOException e) {
             System.out.println("Write error!");

@@ -1,7 +1,10 @@
 package elementarytasks.fibonacci;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Fibonacci {
 
@@ -15,7 +18,7 @@ public class Fibonacci {
     }
 
    public List<Integer> getFibonacciNumb() {
-        int nOne = 1;
+        int nOne = 0;
         int nTwo = 1;
         int sum;
         while (true) {
@@ -31,11 +34,10 @@ public class Fibonacci {
         }
     }
 
-    void printListFibonacci(List<Integer> listFibonacci) {
-        System.out.print("UpToTwenty Fibonacci: ");
-        for (Integer num: listFibonacci) {
-            System.out.print(num + ", ");
-        }
+    void printListFibonacci(List<Integer> listFibonacci, int start, int end) {
+        System.out.print("In range " + start + " - " + end + " fibonacci numbers: ");
+        String result = listFibonacci.stream().map(String::valueOf).collect(Collectors.joining(", "));
+        System.out.println(result + ".");
     }
 
 }

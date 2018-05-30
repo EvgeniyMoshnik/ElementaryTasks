@@ -9,8 +9,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 public class FibonacciTest {
 
    private Fibonacci fibonacci;
@@ -18,12 +16,17 @@ public class FibonacciTest {
 
     @Before
     public void setUp() {
-        fibonacci = new Fibonacci(8, 55);
+        fibonacci = new Fibonacci(1, 55);
         expected = new ArrayList<>();
     }
 
     @Test
     public void getFibonacciNumbTest() {
+        expected.add(1);
+        expected.add(1);
+        expected.add(2);
+        expected.add(3);
+        expected.add(5);
         expected.add(8);
         expected.add(13);
         expected.add(21);
